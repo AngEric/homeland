@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const i18n = require('i18n');
 const dayjs = require('dayjs');
-// const apiRoutesV1 = require('../routes/v1');
+const apiRoutesV1 = require('../routes/v1');
 const expressHealthCheck = require('express-healthcheck');
 const Redis = require('ioredis');
 const redis = new Redis({
@@ -41,7 +41,7 @@ app.use(cookieParser());
 
 i18n.configure({
   locales: ['en', 'id'],
-  defaultLocale: 'id',
+  defaultLocale: 'en',
   directory: __dirname + '/../locales',
   register: global,
   header: 'locale',
@@ -57,6 +57,6 @@ app.use((req, res, next) => {
 });
 
 // Routes
-// app.use('/v1', apiRoutesV1);
+app.use('/v1', apiRoutesV1);
 
 module.exports = app;

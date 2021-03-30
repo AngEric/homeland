@@ -13,11 +13,8 @@ module.exports = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   host: process.env.DB_HOST,
+  timezone: process.env.DB_TIMEZONE,
   dialect: 'mysql',
-  migrationStorage: 'json',
-  migrationStoragePath: `${__dirname}/../sequelize-meta.json`,
-  seederStorage: 'json',
-  seederStoragePath: `${__dirname}/../sequelize-data.json`,
   logging,
   pool: {
     max: parseInt(process.env.DB_POOL_MAX) || 1,
